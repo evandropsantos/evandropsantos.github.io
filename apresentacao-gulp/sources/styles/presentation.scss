@@ -1,53 +1,50 @@
+@charset "UTF-8";
+
+@import "config";
+
+
+/*----------  Componentes  ----------*/
+@import "components/header";
+
+
+/*----------  Reset  ----------*/
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 html, body { height: 100%; }
 
-body { font-family: sans-serif; }
+body { font-family: $font-roboto; }
 
-section {
-    margin: 0;
-    padding: 0;
+
+/*----------  Estrutura  ----------*/
+.master-content {
+
+    min-height: 100%;
+
+    &:after {
+  		content: "";
+  		display: block;
+  		height: pxtoem(50);
+	}
 }
 
-section  {
-    
-    a{
-        color: #00bcd4;
-        text-decoration: underline;
+.content {
 
-        &:hover{ text-decoration: underline; }
-    }
+   /*Desktop*/
+   @media (min-width: $screen-mobile + 1px) {
+
+		max-width: $screen-desktop;
+		margin: 0 auto;
+	}
+
+	/*Mobile*/
+	@media (max-width: $screen-mobile) { margin: 0 3%; }
 }
 
 h4 {
-    font-size: 1.8em;
-    line-height: 60px;
-    color: #1c7fce;
-}
 
-h5 {
-    font-size: 1.5em;
-    line-height: 50px;
-    color: #03A9F4;
-}
-
-em { 
-    font-size: 1.2em; 
-    line-height: 40px;
-}
-
-p, code {
-    font-size: 1em;
-    line-height: 30px;
-    display: block;
-    margin: 2% 0;
-}
-
-code {
-    padding: 1%;
-    border: 1px solid #CCC;
-    background-color: #f1f0f0;
+    font: #{pxtoem(25)}/50px sans-serif;
 }

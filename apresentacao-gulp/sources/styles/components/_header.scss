@@ -1,0 +1,28 @@
+.header-page {
+    
+    background-color: $color-gulp; 
+    padding: 0.5% 0;
+
+    .content {
+        display: flex;
+        align-items: center;
+	    justify-content: space-between;
+    }
+}
+
+.logotipo {
+
+    background-image: url("#{$image-path}gulp-white-text.svg");
+    background-repeat: no-repeat;
+    background-size: contain; 
+
+    width: 100px;
+    height: 65px;
+
+    @extend %hide-text;
+}
+
+.menu-navigation {
+
+    display: flex;
+}
