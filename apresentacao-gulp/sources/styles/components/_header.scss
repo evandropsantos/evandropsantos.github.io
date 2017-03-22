@@ -3,6 +3,11 @@
     background-color: $color-gulp; 
     padding: 0.5% 0;
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
     .content {
         display: flex;
         align-items: center;
@@ -25,4 +30,12 @@
 .menu-navigation {
 
     display: flex;
+    justify-content: space-around;
+    width: 75%;
+
+    a{
+        color: $color-white;
+        text-decoration: none;
+        
+    }
 }

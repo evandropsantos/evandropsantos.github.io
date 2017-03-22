@@ -5,6 +5,7 @@
 
 /*----------  Componentes  ----------*/
 @import "components/header";
+@import "components/oque-gulp";
 
 
 /*----------  Reset  ----------*/
@@ -23,6 +24,7 @@ body { font-family: $font-roboto; }
 .master-content {
 
     min-height: 100%;
+	padding-top: 75px;
 
     &:after {
   		content: "";
@@ -44,7 +46,60 @@ body { font-family: $font-roboto; }
 	@media (max-width: $screen-mobile) { margin: 0 3%; }
 }
 
+article { 
+	padding: 3% 0; 
+
+	a{
+		color: $color-link;
+		text-decoration: underline;
+
+		&:hover{ text-decoration: none; }
+	}
+}
+
 h4 {
 
-    font: #{pxtoem(25)}/50px sans-serif;
+    font-size: pxtoem(35);
+	line-height: 50px;
+	color: $color-gulp;
 }
+
+h5{
+	font-size: pxtoem(25);
+	line-height: 40px;
+	margin: 2% 0;
+	color: $color-gulp-light;
+}
+
+p{
+	font-size: pxtoem(16);
+	line-height: 35px;
+	margin: 1% 0;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	border: 1px solid #dcd4d4;
+	padding: 2%;
+	vertical-align: top;
+}
+
+code {
+	background-color: $color-black;
+	display: flex;
+	color: $color-white;
+	padding: 0.5% 5%;
+	line-height: 25px;
+}
+
+ul{
+	list-style-position: inside;
+	font-size: pxtoem(18);
+	line-height: 30px;
+}
+
+li{ margin: 1.5% 0; }

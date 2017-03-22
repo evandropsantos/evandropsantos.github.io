@@ -22,16 +22,19 @@
     </header>
 
     <section class="master-content">
-        <div class="content">
-            <article id="oqueGulp" class="block">
+        
+        <article id="oqueGulp" class="block">
+            <div class="content">
                 <h4>O que é o GULP?</h4>
                 <p>Desenvolvimento front-end possui todo um fluxo de trabalho que envolve tarefas como compilar CSS de pré-processadores, verificar erros de Javascript, combinar e minificar assets, otimizar imagens, enfim, tarefas necessárias que fazem parte de qualquer workflow minimamente profissional.</p>
                 <p>A qualidade e quantidade dessas tarefas variam de acordo com as necessidades do seu projeto e essas tarefas acabam gerando um fluxo identificável e que muitas vezes é documentado para ser usado por toda a equipe.</p>
                 <p>O problema é que tudo que é feito pelo ser humano está sujeito a erro. Por mais que tenhamos um manual nos dizendo o que fazer, nada nos impede de pularmos um dos passos, o que pode afetar diretamente o resultado final.</p>
                 <p>Para solucionar problemas como esses foram criados no mercado ferramentas de construção (build) de projetos como Ant, Gradle e Maven, mas há aquelas que são voltadas especialmente para programadores front-end como Grunt e o Gulp.</p>
-            </article>
+            </div>
+        </article>
 
-            <article id="instalacaoConfiguracao" class="block">
+        <article id="instalacaoConfiguracao" class="block">
+            <div class="content">
                 <h4>Instalação e configuração</h4>
                 <p>O Gulp é totalmente feito em Javascript. Para que funcione precisamos ter o Node.js instalado em nossa máquina.</p>
 
@@ -45,8 +48,8 @@
                     <tr>
                         <td>
                             <p>No Ubuntu, através do terminal (permissão de administrador necessária) execute o comando abaixo:</p>
-                            <code>sudo apt-get install -y nodejs</code>
-                            <p><strong>ATENÇÃO:</strong> em algumas distribuições Linux, pode haver um conflito de nomes quando o Node é instalado pelo apt-get. Neste caso específico, no lugar do binário ser node, ele passa a se chamar nodejs. Se o seu sistema é uma dessas distribuições, não se preocupe, basta trocar a chamada node por nodejs.</p>
+                            <code>$ sudo apt-get install -y nodejs</code>
+                            <p>ATENÇÃO: em algumas distribuições Linux, pode haver um conflito de nomes quando o Node é instalado pelo apt-get. Neste caso específico, no lugar do binário ser node, ele passa a se chamar nodejs. Se o seu sistema é uma dessas distribuições, não se preocupe, basta trocar a chamada node por nodejs.</p>
                             <p>Existe também a opção de se trabalhar com a NVM</p>
                         </td>
                         <td>
@@ -54,7 +57,7 @@
                         </td>
                         <td>
                             <p>O homebrew é a maneira mais recomendada para instalar o Node.js em sua máquina, através do comando:</p>
-                            <code>brew update <br> brew install node</code>
+                            <code>$ brew update <br> $ brew install node</code>
                             <p>Não usa homebrew? Sem problema, baixe o instalador: <a href="">https://nodejs.org/en/download/</a></p>
                         </td>
                     </tr>
@@ -62,12 +65,12 @@
             
                 <h5>Como verificar se o Node.js foi instalado corretamente?</h5>
                 <p>Abra seu terminal de preferência e execute o comando:</p>
-                <code>node --version</code>
+                <code>$ node --version</code>
                 <p>No próprio terminal será exibida a versão do Node.js instalada, denotando que a plataforma foi instalada com sucesso.</p>
 
                 <h5>Preciso instalar o NPM?</h5>
                 <p>O npm já é instalado durante a instalação do Node.js, sendo assim, nenhum outro passo é necessário. Para verificar se o NPM foi instalado corretamente, execute no terminal o comando:</p>
-                <code>npm --version</code>
+                <code>$ npm --version</code>
                 <p>No próprio terminal será exibida a versão do npm instalada, denotando que a instalação foi realizada com sucesso.</p>
 
                 <h5>Instalação do GULP</h5>
@@ -75,78 +78,80 @@
 
                 <p>O arquivo package.json possui uma estrutura peculiar e por esta razão há um assistente para sua criação. No terminal, dentro da pasta projeto vamos executar o comando:</p>
 
-                <code>npm init</code>
+                <code>$ npm init</code>
 
                 <p>Um assistente fará perguntas como o nome do projeto, sua versão entre outras. Você pode responder atentamente cada uma das perguntas feitas, porém você pode dar ENTER para todas elas que um padrão será adotado. Por exemplo, o nome do projeto será o nome da pasta na qual o comando foi executado. O resultado final será o arquivo package.json com a seguinte estrutura:</p>
 
                 <code>
-                    {
-                        "name": "projeto",
-                        "version": "1.0.0",
-                        "description": "",
-                        "main": "index.js",
-                        "scripts": {
-                            "test": "echo \"Error: no test specified\" && exit 1"
-                        },
-                        "author": "",
-                        "license": "ISC"
+                    { <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "name": "projeto", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "version": "1.0.0", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "description": "", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "main": "index.js", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "scripts": { <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "test": "echo \"Error: no test specified\" && exit 1" <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; }, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "author": "", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "license": "ISC" <br />
                     }
                 </code>
 
                 <p>Agora vamos baixar o GULP através do comando</p>
 
-                <code>npm install gulp@3.9.0 --save-dev</code>
+                <code>$ npm install gulp@3.9.0 --save-dev</code>
 
                 <p>@ e sua versão. Caso tivéssemos omitido a versão, a mais atual seria baixada. </p>
 
                 <p>Quando o comando terminar, veremos que a pasta node_modules foi criada em nosso projeto. Dentro dela, existe a pasta gulp. E como ficou nosso package.json?</p>
 
                 <code>
-                    {
-                        "name": "projeto",
-                        "version": "1.0.0",
-                        "description": "",
-                        "main": "index.js",
-                        "scripts": {
-                            "test": "echo \"Error: no test specified\" && exit 1"
-                        },
-                        "author": "",
-                        "license": "ISC",
-                        "devDependencies": {
-                            "gulp": "^3.9.0"
-                        }
+                    { <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "name": "projeto", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "version": "1.0.0", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "description": "", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "main": "index.js", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "scripts": { <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "test": "echo \"Error: no test specified\" && exit 1" <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; }, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "author": "", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "license": "ISC", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; "devDependencies": { <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "gulp": "^3.9.0" <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;} <br />
                     }
 
                 </code>
 
                 <p>E agora? Já podemos executar o Gulp? Sim, mas como ele foi instalado dentro da pasta node_modules seremos obrigados a escrever toda vez.</p>
 
-                <code>./node_modules/gulp/bin/gulp.js. </code>
+                <code>$ ./node_modules/gulp/bin/gulp.js. </code>
 
                 <p>Podemos resolver alterando nosso arquivo package.json. Editando a seguinte chave:</p>
 
                 <code>
-                    // código anterior omitido
-                    "scripts": {
-                        "test": "echo \"Error: no test specified\" && exit 1",
-                        "gulp": "gulp"
-                    },
+                    // código anterior omitido <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp; "scripts": { <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "test": "echo \"Error: no test specified\" && exit 1", <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "gulp": "gulp" <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp; }, <br />
                     // código posterior omitido
                 </code>
 
                 <p>Agora, se quisermos executar o Gulp através do terminal basta executarmos o comando:</p>
 
-                <code>npm run gulp</code>
+                <code>$ npm run gulp</code>
 
                 <p>O Gulp é executado, mas recebemos um erro:</p>
 
-                <code>No gulpfile found</code>
+                <code>$ No gulpfile found</code>
 
                 <p>Esse erro acontece, porque toda vez que o Gulp é executado ele procura o arquivo gulpfile.js.</p>
+            </div>
 
-            </article>
+        </article>
 
-            <article id="gulpGrunt" class="block">
+        <article id="gulpGrunt" class="block">
+            <div class="content">
                 <h4>Gulp VS Grunt</h4>
                 <h5>Vantagens do Gulp</h5>
                 <ul>
@@ -160,9 +165,11 @@
                         Sua alta qualidade e facilidade de aprendizado garantem plugins igualmente eficientes e, devido ao próprio modo como o Gulp funciona, sua facilidade de aprendizado e uso é absurda; é uma curtíssima (quase inexistente) curva de aprendizado para começar a mexer.
                     </li>
                 </ul>
-            </article>
+            </div>
+        </article>
 
-            <article id="configurandoTasks" class="block">
+        <article id="configurandoTasks" class="block">
+            <div class="content">
                 <h4>Configurando tasks</h4>
                 <h5>Vamos criar o arquivo gulpfile.js</h5>
                 <p>Criar as tasks para:</p>
@@ -173,13 +180,15 @@
                     <li>Verificar erros em Javascript</li>
                     <li>Minificar, concatenar e remover comentários de Javascript</li>
                 </ul>
-            </article>
+            </div>
+        </article>
 
-            <article id="observarAlteracoes" class="block">
+        <article id="observarAlteracoes" class="block">
+            <div class="content">
                 <h4>Observar alterações</h4>
                 <h5>Configuração do metódo watch(), para observar alterações feitas na hora!</h5>
-            </article>
-        </div>
+            </div>
+        </article>
     </section>
     
     <script src="build/scripts/jquery-3.2.0.js"></script>

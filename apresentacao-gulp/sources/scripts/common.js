@@ -18,7 +18,7 @@ Common = function() {
 
                 if (target.length) {
 
-                    $('html, body').animate({ scrollTop: target.offset().top }, 1000);
+                    $('html, body').animate({ scrollTop: target.offset().top -75 }, 1000);
                 }
             }
         });
