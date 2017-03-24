@@ -3,6 +3,7 @@ Common = function() {
     function init() {
 
         navigationAnchor();
+        closeModal();
 
         console.log('Init all functions.');
     }
@@ -21,6 +22,17 @@ Common = function() {
                     $('html, body').animate({ scrollTop: target.offset().top -75 }, 1000);
                 }
             }
+        });
+    }
+
+    function closeModal() {
+
+        document.querySelector('.btn-close').addEventListener('click', function( event ) {
+
+            event.preventDefault();
+
+            document.querySelector('.who-am-i').classList.add('hidden');
+
         });
     }
 
