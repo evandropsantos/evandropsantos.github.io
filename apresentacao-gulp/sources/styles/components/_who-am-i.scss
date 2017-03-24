@@ -35,8 +35,15 @@
         span, strong { display: block; }
 
         strong { 
-            color: $color-link; 
+            color: $color-gulp-light; 
             font-size: pxtoem(30);
+        }
+
+        a{ 
+            display: block;
+            text-decoration: underline;
+            color: $color-link; 
+            margin: 1% 0;
         }
     }
 }

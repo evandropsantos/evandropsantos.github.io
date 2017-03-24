@@ -76,8 +76,13 @@
     .who-am-i em span, .who-am-i em strong {
       display: block; }
     .who-am-i em strong {
-      color: #2196F3;
+      color: #bf6e6e;
       font-size: 1.875em; }
+    .who-am-i em a {
+      display: block;
+      text-decoration: underline;
+      color: #2196F3;
+      margin: 1% 0; }
 
 .picture {
   background: url("../images/picture.jpg");
