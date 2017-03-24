@@ -50,9 +50,16 @@ gulp.task('minify-script', function() {
 
     gulp.src('sources/scripts/**/*.js')
     .pipe(stripDebug())
-    .pipe(concat('common.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('build/scripts'))
+});
+
+gulp.task('concat-libs', function() {
+
+    gulp.src('sources/libs/**/*.js')
+    .pipe(concat('libs.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('build/libs'))
 });
 
 /*----------  Desenvolvimento  ----------*/
@@ -75,5 +82,5 @@ gulp.task('default', function() {
 /*----------  Producao  ----------*/
 gulp.task('build', ['clean:build'], function() {
 
-    gulp.start('minify-styles', 'minify-script', 'minify-images');
+    gulp.start('minify-styles', 'minify-script', 'concat-libs', 'minify-images');
 });
